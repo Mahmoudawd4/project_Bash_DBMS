@@ -1,0 +1,2 @@
+ID:name:age:dop
+int (Not NULL):string (Not NULL):int:string

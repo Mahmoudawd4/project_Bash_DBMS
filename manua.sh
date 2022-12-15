@@ -15,13 +15,13 @@ do
            clear ; . list.sh ; . Back.sh
             ;;
         "Connect To DB")
-            clear ; . Back.sh
+            clear ; . conactdb.sh; . Back.sh
             ;;
         "Drop DB")
             clear ; .  DropDatabase.sh ; . Back.sh
             ;;  
         "Exit")
-            echo "Goodbye :(" ; exit
+            echo "thanks :: " ; exit
             ;;
         *) clear ; echo "Erorr plese agian enter choice " ; . manua.sh ;;
     esac

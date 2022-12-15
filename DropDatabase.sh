@@ -1,10 +1,10 @@
 
-echo "Enter Database name is deleted  or  (back) to back to MENU: "
+echo "Enter Database name is deleted  || ====>  (b) to back =>>>>>>to MENU: "
 read DbName
 
 DB=databases
 
-if [  $DbName == "back"  ]
+if [  $DbName == "b"  ]
 then
 	clear 
 	. manua.sh
