@@ -1,2 +1,5 @@
 ID:name:age:dob:dept_id
 int (Not NULL):string:int (Not NULL):int (Not NULL):string
+0:mahmoud:23:22:1
+1:islam:35:55:5
+2:khaled:34:3:ff

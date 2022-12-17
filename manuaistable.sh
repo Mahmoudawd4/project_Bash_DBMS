@@ -14,9 +14,9 @@ do
 	case $val in
 		$option1 ) clear ; . ../../createTable.sh          ; . ../../manuaistable.sh;; 
 		$option2 ) clear ;  . ../../manuaistable.sh;;
-		$option3 ) clear ; . ../../manuaistable.sh;;
+		$option3 ) clear ; . ../../insertTable.sh ; . ../../manuaistable.sh;;
 		$option4 ) clear ; . ../../manuaistable.sh;;
-		$option5 ) clear  ; . ../../manuaistable.sh;;
+		$option5 ) clear ; . ../../manuaistable.sh;;
 		$option6 ) clear ; . ../../manuaistable.sh;;
 		$option7 ) clear ; cd ../..        ; . ../../manuaistable.sh;;
 		$option8 ) echo "thanks "              ; exit;;
