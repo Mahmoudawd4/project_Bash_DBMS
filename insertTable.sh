@@ -1,6 +1,6 @@
 
 
-echo "Enter the name of table or type (b) to go back to MENU: "
+echo "Enter name of the table or type (b) to go back to main menu: "
 read TableName
 if [  $TableName == "back" ]
 then
@@ -23,7 +23,7 @@ else
 			then
 				while  [[ $val == "" ]] 
 				do
-					echo  "the record must is not empty ==> not null!"
+					echo  "the record can't be ==> not null!"
 					read val
 				done			
 			fi
