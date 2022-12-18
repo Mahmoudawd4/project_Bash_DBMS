@@ -2,7 +2,7 @@
 
 echo "Enter name of the table or type (b) to go back to main menu: "
 read TableName
-if [  $TableName == "back" ]
+if [  $TableName == "b" ]
 then
 	clear 
 	. . ../../manuaistable.sh
