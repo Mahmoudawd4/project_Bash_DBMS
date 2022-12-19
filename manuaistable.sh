@@ -28,6 +28,3 @@ do
 		* )     clear ; echo "Invalid error" ; . ../../manuaistable.sh ; 
 	esac
 done
-
-
-		#$option9 ) clear ; cd ../..        ; . ../../manuaistable.sh;;
