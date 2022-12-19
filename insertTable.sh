@@ -23,7 +23,7 @@ else
 			then
 				while  [[ $val == "" ]] 
 				do
-					echo  "the record can't be ==> not null!"
+					echo  "the record can't be empty ==> not null!"
 					read val
 				done			
 			fi
@@ -31,7 +31,7 @@ else
 			then
 				while ! [[ $val =~ ^[0-9]*$ ]] 
 				do
-					echo  "Error data type int //please enter enteger !"
+					echo  "Error data type int //please enter an integer !"
 					read val
 					while  [[ $val == "" ]] 
 					do
