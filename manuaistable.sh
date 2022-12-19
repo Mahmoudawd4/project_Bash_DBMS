@@ -23,8 +23,11 @@ do
 		$option6 ) clear ; . ../../dropTable.sh;. ../../manuaistable.sh;;
 		$option7) clear ; . ../../selectfrom.sh;. ../../manuaistable.sh;;
 		$option8 ) clear ; . ../../select_all_data.sh  ; . ../../manuaistable.sh;;
-		$option9 ) clear ; cd ../..        ; . ../../manuaistable.sh;;
+		$option9 ) clear ; cd ../..     ;     ./manua.sh;;
 		$option10 ) echo "thanks "              ; exit;;
 		* )     clear ; echo "Invalid error" ; . ../../manuaistable.sh ; 
 	esac
 done
+
+
+		#$option9 ) clear ; cd ../..        ; . ../../manuaistable.sh;;
