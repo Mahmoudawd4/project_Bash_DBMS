@@ -1,4 +1,4 @@
-echo "please Enter  chooces : "
+echo "please Enter  choice number : "
 choices=("Back to MENU" "Exit")
 select result in "${choices[@]}"
 do

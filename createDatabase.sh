@@ -3,9 +3,6 @@
 DB="databases";
 declare -a DBARR ;
 
-
-
-
 # function create db 
 function create {
 	

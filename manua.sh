@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "--- Database manu ----"
-echo "please Enter choice :"
+
+mkdir -p databases  #create databases folder if not exists
 
 choice=("Create DataBase" "List" "Connect To DB" "Drop DB" "Exit")
 
