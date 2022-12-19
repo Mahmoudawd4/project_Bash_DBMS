@@ -4,6 +4,8 @@ DB="databases";
 declare -a DBARR ;
 
 
+
+
 # function create db 
 function create {
 	read -p " pleases Enter Name Database : " DBName;

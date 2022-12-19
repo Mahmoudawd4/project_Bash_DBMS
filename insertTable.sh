@@ -5,10 +5,11 @@ read TableName
 if [  $TableName == "b" ]
 then
 	clear 
-	. . ../../manuaistable.sh
+	.  ../../manuaistable.sh
 else
 	if [[ -f "$TableName" ]]
 	then
+		#count number of record
 		NF=$(awk -F : 'END{print NR}' $TableName)
 		((id = $NF - 2 )) 
 		row="$id:"
