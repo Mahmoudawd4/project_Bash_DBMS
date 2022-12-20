@@ -26,9 +26,6 @@ function check_string(){
         fi
     done
 
-    echo $returnValue
-
-
-    #return 0
+    echo 0
 }
 
