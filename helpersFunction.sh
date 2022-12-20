@@ -2,7 +2,6 @@
 
 
 function check_string(){
-    echo "inside check_string"
 
     returnValue=0	#initialize db name 
 

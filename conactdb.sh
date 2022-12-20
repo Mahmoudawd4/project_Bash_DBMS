@@ -41,7 +41,7 @@ else
              "Exit")
             clear ; exit
             ;;
-			* ) echo "Choice error is not found"
+			* ) echo "Error: choice not found !"
 		esac
 	done
 fi
