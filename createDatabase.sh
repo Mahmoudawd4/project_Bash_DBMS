@@ -3,7 +3,7 @@
 . "./helpersFunction.sh"    #to import helper function from the helpersFunction.sh file
 
 DB="databases";
-declare -a DBARR ;
+
 
 # function create db 
 function create {

@@ -8,8 +8,14 @@ echo "Please Enter table name"
 check_string				#to invoke this function from helpersFunction.sh
 tableName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
 
+if [  $tableName == "b" ]
+    then
+   clear 
+   . ../../manuaistable.sh
+else
+if [[ -f "$tableName" ]]
+            then
 #read tableName
-
 echo -n "Please Enter id : "
 read pk
 
@@ -32,3 +38,21 @@ echo "##########################################################################
 awk -F':' -v pk="$pk" '{if($1==pk) print}' $tableName
 echo "###########################################################################"
 
+else
+            echo "There is no table with this name!"
+            val1="Re-enter table name"
+            val2="Back to menu"
+            select val in "$val1" "$val2"
+            do
+                case $val in
+                    $val1 ) clear ; . ../../selectfrom.sh     ; clear ; break;;
+                    $val2 ) clear ; . ../../manuaistable.sh; clear ; break;;
+                    * ) echo "Erorr choice"
+                esac
+            done
+        
+
+        fi
+
+
+fi
