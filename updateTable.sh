@@ -1,7 +1,14 @@
 #!/bin/bash
 
-echo "Enter name of the table or type (b) to go back to main menu: "
-read TableName
+. "../../helpersFunction.sh"    #to import helper function from the helpersFunction.sh file
+
+echo "Enter name of the table or type (b) to go back to main menu"
+
+check_string	#to invoke this function from helpersFunction.sh
+TableName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
+
+#read TableName
+
 if [  $TableName == "b" ]
     then
         clear 
@@ -13,7 +20,6 @@ if [  $TableName == "b" ]
 
                 echo -e "Enter column name to edit on"
                 read colName
-                colNumber=0 ##I will calculate it from the next loop to use it later in  updating the cell
 
                 # Check if the column user inputed is in the table schema.
                 actualField=$(awk 'BEGIN{FS=":"}
@@ -23,9 +29,6 @@ if [  $TableName == "b" ]
                         {
                             if($i=="'$colName'")
                                 print i}}}' $TableName)
-
-                echo "col number = $colNumber"
-
 
                 if [[ $actualField == "" ]]
                     then
@@ -37,6 +40,7 @@ if [  $TableName == "b" ]
                 # take row number from user to edit on 
                     withinRange=0
                     userInputRowNumber=0    #initial value for user input
+                    totalRowNumber=0        #itialize this row counter contain's the two metadata rows
                     while [ $withinRange == 0 ]
                         do
                             echo "Enter row number to update on"
@@ -59,31 +63,25 @@ if [  $TableName == "b" ]
                         done
                         echo "user input row number = $userInputRowNumber"
 
-                        #oldData=$(awk 'NR ==$userInputRowNumber $ ' $TableName)
-
-
-                        #oldValue=$(awk 'BEGIN{FS=":"}{if(NR=='$userInputRowNumber'){for(i=1;i<=NF;i++){if(i=='$colName') print $i}}}' $TableName)
-
                         oldValue=$(awk -v FS=':' '/"$colName"/{print NR; exit}' $TableName)
-                        fid=$(awk 'BEGIN{FS=":"}{if(NR==1){for(i=1;i<=NF;i++){if($i=="'$colName'") print i}}}' $TableName)
-                                                echo "fid is $fid"
+                        colNumber=$(awk 'BEGIN{FS=":"}{if(NR==1){for(i=1;i<=NF;i++){if($i=="'$colName'") print i}}}' $TableName)  #return 
 
-                        NR=$(awk 'BEGIN{FS=":"}{if ($'$fid' == "'$colName'") print NR}' $TableName)
-                         echo "N R is $NR"
-                        oldValue=$(awk 'BEGIN{FS=":"}{if(NR=='$rowNumber+2'){for(i=1;i<=NF;i++){if(i=='$fid') print $i}}}' $TableName )
+                        echo "fid is $colNumber"
 
-                        echo "old value is $oldValue"
-                        echo "Out of while loop"
+                        NR=$(awk 'BEGIN{FS=":"}{if ($'$colNumber' == "'$colName'") print NR}' $TableName)
+
+                        oldValue=$(awk 'BEGIN{FS=":"}{if(NR=='$rowNumber+2'){for(i=1;i<=NF;i++){if(i=='$colNumber') print $i}}}' $TableName )
+
                         echo "Old value for column \"$colName\" is : $oldValue"
-                        echo "enter new value :"
+                        echo "enter new value"
+                        #check if the value is integer or string  
+
+                        # check_string	#to invoke this function from helpersFunction.sh
+                        # newValue=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
+
                         read newValue
 
-                        #sed
-
-
-
-
-
+                        sed -i "$totalRowNumber s/$oldValue/$newValue/g" "$TableName"
                 fi
 
         else
