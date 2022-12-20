@@ -1,3 +1,4 @@
+#!/bin/bash
 index=1
 clear
 echo "list tables "

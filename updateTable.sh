@@ -1,3 +1,4 @@
+#!/bin/bash
 
 echo "Enter name of the table or type (b) to go back to main menu: "
 read TableName
