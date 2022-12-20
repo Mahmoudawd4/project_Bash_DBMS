@@ -1,4 +1,4 @@
-
+#!/bin/bash
   echo -e "please enter table name : \c"
   read TableName
   awk '(NR>2)'  $TableName 

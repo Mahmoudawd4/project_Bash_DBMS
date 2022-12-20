@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "plese Enter the name table to concact (b) to back to MENU: "
 
 DB=databases

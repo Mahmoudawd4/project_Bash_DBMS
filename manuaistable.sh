@@ -1,4 +1,4 @@
-
+#!/bin/bash
 echo "Enter the chice :"
 
 option1="Create table"

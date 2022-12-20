@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 echo "plese Enter the name table :  =========(b)====== to back to ======== MENU : "
 

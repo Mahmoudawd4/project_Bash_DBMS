@@ -1,4 +1,4 @@
-
+#!/bin/bash
 echo "Enter Database name to be droped or enter (b) to go back: "
 
 DbName=0	#initialize db name 

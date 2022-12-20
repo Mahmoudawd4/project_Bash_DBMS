@@ -1,3 +1,5 @@
+#!/bin/bash
+
     echo "b ============> to back : "
     echo  "Enter Table Name:"
     read TableName
