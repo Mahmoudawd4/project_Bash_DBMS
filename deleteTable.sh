@@ -13,6 +13,9 @@ function deleteRecordByid
 
     #read TableName
 
+
+	
+
     echo "pleses Enter row ID to be deleted, or (b) to go back "
 	read id
 

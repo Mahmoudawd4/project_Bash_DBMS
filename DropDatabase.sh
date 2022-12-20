@@ -13,7 +13,7 @@ if [  $DbName == "b"  ]
 then
 	clear 
 	. manua.sh
-fi
+else
 if [[ -d  "$DB/$DbName" ]]
 then
 
@@ -25,20 +25,19 @@ then
 
 else
 	echo "Database not found !"
-    Result=("Enter name again " "Back to menu" "Exit")
-	select val in "${Result[@]}"
+    #Result=("Enter name again " "Back to menu" "Exit")
+	val1="Re-enter table name"
+    val2="Back to menu"
+	val3="Exit"
+	select val in "$val1" "$val2" "val3"
 	do
 		case $val in
-             "Enter name again")
-            clear ; . DropDatabase.sh ; clear ; break
-            ;;
-			 "Back to menu")
-            clear ; . 	. manua.sh ; clear ; break
-            ;;
-            "Exit")
-            echo "exit  " ; exit
-            ;;
+             $val1)clear ; . DropDatabase.sh ; clear ; break;;
+			 $val2)clear ; . manua.sh ; clear ; break;;
+            $val3) echo "thanks ";exit;;
 			* ) echo "error not found "
 		esac
 	done
+fi
+
 fi
