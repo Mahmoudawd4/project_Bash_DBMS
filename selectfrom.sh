@@ -1,7 +1,15 @@
 #!/usr/bin/bash
 
-echo "Please Enter tables"
-read tableName
+. "../../helpersFunction.sh"    #to import helper function from the helpersFunction.sh file
+
+
+echo "Please Enter table name"
+
+check_string				#to invoke this function from helpersFunction.sh
+tableName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
+
+#read tableName
+
 echo -n "Please Enter id : "
 read pk
 
@@ -19,7 +27,7 @@ while [ $exitflag -eq 0 ];do
 	fi
 done
 
-echo "the table is  $tableName where id = $pk"
+echo "the table is ($tableName), where id = $pk"
 echo "###########################################################################"
 awk -F':' -v pk="$pk" '{if($1==pk) print}' $tableName
 echo "###########################################################################"

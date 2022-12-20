@@ -1,7 +1,13 @@
 #!/bin/bash
 
-echo "Enter name of the table or type (b) to go back to main menu: "
-read TableName
+. "../../helpersFunction.sh"    #to import helper function from the helpersFunction.sh file
+
+echo "Enter name of the table to insert into, or (b) to go back to main menu: "
+
+check_string	#to invoke this function from helpersFunction.sh
+TableName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
+
+#read TableName
 if [  $TableName == "b" ]
 then
 	clear 
@@ -18,7 +24,7 @@ else
 		do
 			name=$(awk -F : 'BEGIN {record = '$i'}{if(NR==1){print $record;}}' $TableName)
 			datatype=$(awk -F : 'BEGIN {record = '$i'}{if(NR==2){print $record;}}' $TableName)
-			echo "insert valus is record ($name):"
+			echo "Insert values into column ($name):"
 			read val
 			if [[ $datatype == *"Not NULL"* ]]
 			then
@@ -32,7 +38,7 @@ else
 			then
 				while ! [[ $val =~ ^[0-9]*$ ]] 
 				do
-					echo  "Error data type int //please enter an integer !"
+					echo  "Error: you enterd a string, please enter an integer !"
 					read val
 					while  [[ $val == "" ]] 
 					do

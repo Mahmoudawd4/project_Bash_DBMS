@@ -2,12 +2,12 @@
 
 
 function check_string(){
+    echo "inside check_string"
 
     returnValue=0	#initialize db name 
 
     flag=0	#to exit the while loop
 
-    echo "inside checkString"
 
     while [ $flag == 0 ]
     do
@@ -26,6 +26,7 @@ function check_string(){
         fi
     done
 
-    echo 0
+    #echo $returnValue
+    #returnValue=0
 }
 

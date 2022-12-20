@@ -1,8 +1,6 @@
 #!/bin/bash
 
-
 . "./helpersFunction.sh"    #to import helper function from the helpersFunction.sh file
-
 
 DB="databases";
 declare -a DBARR ;
@@ -11,9 +9,7 @@ declare -a DBARR ;
 function create {
 	
 	echo "Please enter database name"
-	check_string
-
-	#check_string	
+	check_string	#to invoke this function from helpersFunction.sh
 
 	DBName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
 

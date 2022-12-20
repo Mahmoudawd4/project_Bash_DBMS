@@ -1,8 +1,14 @@
 #!/bin/bash
 
-    echo "b ============> to back : "
-    echo  "Enter Table Name:"
-    read TableName
+. "../../helpersFunction.sh"    #to import helper function from the helpersFunction.sh file
+
+
+    echo  "Enter Table Name to be droped, or (b) to go back"
+
+	check_string				#to invoke this function from helpersFunction.sh
+	TableName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
+
+    #read TableName
     
 if [  $TableName == "b" ]
 then

@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Enter the chice :"
+echo "Choose from menu"
 
 option1="Create table"
 option2="List tables in database"

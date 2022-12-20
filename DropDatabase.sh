@@ -1,25 +1,11 @@
 #!/bin/bash
-echo "Enter Database name to be droped or enter (b) to go back: "
 
-DbName=0	#initialize db name 
+. "./helpersFunction.sh"    #to import helper function from the helpersFunction.sh file
 
-flag=0	#to exit the while loop
+echo "Enter Database name to be droped or enter (b) to go back"
 
-while [ $flag == 0 ]
-do
-	read userInput
-	if [[ $userInput = "" ]]; then
-		echo "Wrong DB name: Please enter a name composed of only letters either small or capital, without numbers, special chars or spaces."
-
-	elif [[ $userInput =~ ^[a-zA-Z]*$ ]]; then 	#correct db name
-
-		DbName=$userInput	# to exit the while loop
-		flag=1
-
-	else # wrong dbname 
-		echo "Wrong DB name: Please enter a name composed of only letters either small or capital, without numbers, special chars or spaces."
-	fi
-done
+check_string				#to invoke this function from helpersFunction.sh
+DbName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
 
 DB=databases	#databases folder that contains all DB's
 

@@ -1,11 +1,20 @@
 #!/bin/bash
-  echo -e "please enter table name : \c"
-  read TableName
-  awk '(NR>2)'  $TableName 
-  if [[ $? != 0 ]]
-  then
-    echo "Error Displaying Table $TableName"
-  else
+
+. "../../helpersFunction.sh"    #to import helper function from the helpersFunction.sh file
+
+
+echo "please enter table name"
+
+check_string				#to invoke this function from helpersFunction.sh
+TableName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
+
+#read TableName
+awk '(NR>2)'  $TableName 
+echo	#to create empty line 
+if [[ $? != 0 ]]
+then
+	echo "Error Displaying Table $TableName"
+else
 		val1="Re-enter name of table"
 		val2="Back to MENU"
 		select val in "$val1" "$val2"

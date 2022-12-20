@@ -1,24 +1,27 @@
 #!/bin/bash
 
-echo "plese Enter the name table :  =========(b)====== to back to ======== MENU : "
+echo "Please enter table name to connect to , or (b) to go back "
 
 #validate new table name
-flag=0	#to exit the while loop
+# flag=0	#to exit the while loop
 
-TableName=0
+# TableName=0
 
-while [ $flag == 0 ]
-do
-	read userTableName
-	if [[ $userTableName =~ ^[a-zA-Z]*$ ]]; then 	#correct db name
+# while [ $flag == 0 ]
+# do
+# 	read userTableName
+# 	if [[ $userTableName =~ ^[a-zA-Z]*$ ]]; then 	#correct db name
 
-		TableName=$userTableName	
-		flag=1	# to exit the while loop
+# 		TableName=$userTableName	
+# 		flag=1	# to exit the while loop
 
-	else # wrong name 
-		echo "Wrong name: Please enter a name composed of only letters either small or capital, without numbers, special chars or spaces."
-	fi
-done
+# 	else # wrong name 
+# 		echo "Wrong name: Please enter a name composed of only letters either small or capital, without numbers, special chars or spaces."
+# 	fi
+# done
+
+check_string	#to invoke this function from helpersFunction.sh
+TableName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
 
 
 if [  $TableName == "b" ]
@@ -87,7 +90,7 @@ else
         echo "__________________________________________________"
 
 
-		echo " table created successfully is ==> $TableName  :"
+		echo " table created successfully into DB ==> $TableName  :"
         
 		echo "__________________________________________________"
 	fi

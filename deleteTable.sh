@@ -1,24 +1,31 @@
 #!/bin/bash
 
+. "../../helpersFunction.sh"    #to import helper function from the helpersFunction.sh file
+
+
 function deleteRecordByid
 {
     echo "(b) to back : "
     echo  "Enter Table Name:"
-    read TableName
 
-    echo "pleses Enter id in table deleted:"
+	check_string	#to invoke this function from helpersFunction.sh
+	TableName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
+
+    #read TableName
+
+    echo "pleses Enter row ID to be deleted, or (b) to go back "
 	read id
 
-	if [  $id == "back" ]
+	if [  $id == "b" ]
 	then
 		clear 
 			.  ../../manuaistable.sh
 	else
 		if ! [[ $id =~ ^[0-9]*$ ]]
 		then
-			echo "Error iD ===> id is not number"
-			val1="re agian enter id valid :"
-			val2="backe to "
+			echo "ID Error: id is not a number"
+			val1="Re-enter a valid ID"
+			val2="back to menu"
 			select val in "$val1" "$val2"
 			do
 				case $val in

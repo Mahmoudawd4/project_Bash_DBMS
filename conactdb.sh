@@ -1,9 +1,16 @@
 #!/bin/bash
 
-echo "plese Enter the name table to concact (b) to back to MENU: "
+. "helpersFunction.sh"    #to import helper function from the helpersFunction.sh file
+
+
+echo "Please enter DB name to connect to , or (b) to go back "
 
 DB=databases
-read DBName
+
+
+check_string	#to invoke this function from helpersFunction.sh
+DBName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
+
 if [  $DBName == "b" ]
 then
    clear
@@ -14,15 +21,15 @@ if [[ -d "$DB/$DBName" ]]
 then
    cd $DB/$DBName
    clear 
-   echo "conected the database name is  $DBName  "
+   echo "conected to DB : $DBName  "
    . ../../manuaistable.sh
 else
    echo "databases is not found"
-    choice=("agian enter databse name" "create table" "Back to MENU" "Exit")
+    choice=("Enter DB name again" "create table" "Back to MENU" "Exit")
 	select result in "${choice[@]}"
 	do
 		case $result in
-            "agian enter databse name")
+            "Enter DB name again")
             clear ; . ../../conactdb.sh ; clear ; break
             ;;
              "create table")
