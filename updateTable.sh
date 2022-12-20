@@ -61,12 +61,24 @@ if [  $TableName == "b" ]
 
                         #oldData=$(awk 'NR ==$userInputRowNumber $ ' $TableName)
 
+
                         #oldValue=$(awk 'BEGIN{FS=":"}{if(NR=='$userInputRowNumber'){for(i=1;i<=NF;i++){if(i=='$colName') print $i}}}' $TableName)
 
                         oldValue=$(awk -v FS=':' '/"$colName"/{print NR; exit}' $TableName)
+                        fid=$(awk 'BEGIN{FS=":"}{if(NR==1){for(i=1;i<=NF;i++){if($i=="'$colName'") print i}}}' $TableName)
+                                                echo "fid is $fid"
+
+                        NR=$(awk 'BEGIN{FS=":"}{if ($'$fid' == "'$colName'") print NR}' $TableName)
+                         echo "N R is $NR"
+                        oldValue=$(awk 'BEGIN{FS=":"}{if(NR=='$rowNumber+2'){for(i=1;i<=NF;i++){if(i=='$fid') print $i}}}' $TableName )
+
                         echo "old value is $oldValue"
                         echo "Out of while loop"
                         echo "Old value for column \"$colName\" is : $oldValue"
+                        echo "enter new value :"
+                        read newValue
+
+                        #sed
 
 
 
