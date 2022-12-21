@@ -18,6 +18,8 @@ if [  $TableName == "b" ]
             then
                 #Do update functionality
 
+                echo hint colmn is `head -1 $TableName`
+
                 echo -e "Enter column name to edit on"
                 read colName
 
@@ -71,7 +73,7 @@ if [  $TableName == "b" ]
                         NR=$(awk 'BEGIN{FS=":"}{if ($'$colNumber' == "'$colName'") print NR}' $TableName)
 
                         oldValue=$(awk 'BEGIN{FS=":"}{if(NR=='$rowNumber+2'){for(i=1;i<=NF;i++){if(i=='$colNumber') print $i}}}' $TableName )
-
+                        #echo $userInputRowNumber+2
                         echo "Old value for column \"$colName\" is : $oldValue"
                         echo "enter new value"
                         #check if the value is integer or string  
@@ -81,7 +83,10 @@ if [  $TableName == "b" ]
 
                         read newValue
 
-                        sed -i "$totalRowNumber s/$oldValue/$newValue/g" "$TableName"
+                        #no run 
+                        #sed -i "$actualRowNumber s/$oldValue/$newValue/g" "$TableName"
+
+                        sed -i "$actualRowNumber s/$oldValue/$newValue/g" "$TableName"
                 fi
 
         else
