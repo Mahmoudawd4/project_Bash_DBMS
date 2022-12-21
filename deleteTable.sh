@@ -12,10 +12,8 @@ function deleteRecordByid
 	TableName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
 
     #read TableName
-
-
-	
-
+if [[ -f "$TableName" ]]
+then
     echo "pleses Enter row ID to be deleted, or (b) to go back "
 	read id
 
@@ -68,6 +66,13 @@ function deleteRecordByid
             fi     
 		fi
 	fi
+
+else
+   
+   echo "Error name table "
+	
+fi
+
 }
 
 deleteRecordByid

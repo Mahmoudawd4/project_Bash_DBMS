@@ -2,6 +2,8 @@
 
 . "../../helpersFunction.sh"    #to import helper function from the helpersFunction.sh file
 
+
+
 echo "Enter name of the table or type (b) to go back to main menu"
 
 check_string	#to invoke this function from helpersFunction.sh
@@ -18,6 +20,7 @@ if [  $TableName == "b" ]
             then
                 #Do update functionality
 
+                echo `head -1 $TableName`
                 echo -e "Enter column name to edit on"
                 read colName
 
