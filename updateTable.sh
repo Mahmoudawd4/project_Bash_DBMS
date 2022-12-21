@@ -6,7 +6,7 @@
 
 echo "Enter name of the table or type (b) to go back to main menu"
 
-check_string	#to invoke this function from helpersFunction.sh
+check_string	            #to invoke this function from helpersFunction.sh
 TableName=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
 
 #read TableName
@@ -19,6 +19,10 @@ if [  $TableName == "b" ]
         if [[ -f "$TableName" ]]
             then
                 #Do update functionality
+
+                echo "current column names are :"
+                echo `head -1 $TableName`
+                echo #space
 
                 echo `head -1 $TableName`
                 echo -e "Enter column name to edit on"
@@ -70,20 +74,15 @@ if [  $TableName == "b" ]
                         
 
                         done
-                        echo "user input row number = $userInputRowNumber"
 
                         oldValue=$(awk -v FS=':' '/"$colName"/{print NR; exit}' $TableName)
                         colNumber=$(awk 'BEGIN{FS=":"}{if(NR==1){for(i=1;i<=NF;i++){if($i=="'$colName'") print i}}}' $TableName)  #return 
-
-                        echo "fid is $colNumber"
 
                         NR=$(awk 'BEGIN{FS=":"}{if ($'$colNumber' == "'$colName'") print NR}' $TableName)
 
                         oldValue=$(awk 'BEGIN{FS=":"}{if(NR=='$rowNumber+2'){for(i=1;i<=NF;i++){if(i=='$colNumber') print $i}}}' $TableName )
 
                         echo "Old value for column \"$colName\" is : $oldValue"
-                        echo $totalRowNumber 
-                        echo $actualRowNumber 
 
                         echo "enter new value"
                         #check if the value is integer or string  
@@ -92,9 +91,6 @@ if [  $TableName == "b" ]
                         # newValue=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
 
                         read newValue
-
-                        #sed -i "$actualRowNumber s/$oldValue/$newValue/g" "$TableName"
-
                         user_Input_RowNumber_Plus_Metadata=$(($userInputRowNumber+2))
 
                         sed -i "$user_Input_RowNumber_Plus_Metadata s/$oldValue/$newValue/g" "$TableName"

@@ -70,16 +70,7 @@ else
 		echo $row2>>$TableName
 		clear
         echo "__________________________________________________"
-
-
-
-
-
 		echo " table created successfully into DB ==> $TableName  :"
-
-
-
-
 		echo "__________________________________________________"
 	fi
 fi

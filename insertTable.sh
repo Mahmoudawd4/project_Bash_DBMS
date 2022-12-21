@@ -25,6 +25,11 @@ else
 		do
 			name=$(awk -F : 'BEGIN {record = '$i'}{if(NR==1){print $record;}}' $TableName)
 			datatype=$(awk -F : 'BEGIN {record = '$i'}{if(NR==2){print $record;}}' $TableName)
+
+			echo "current column names are :"
+			echo `head -1 $TableName`
+			echo #create space
+
 			echo "Insert values into column ($name):"
 			read val
 			if [[ $datatype == *"Not NULL"* ]]

@@ -34,7 +34,7 @@ else
 		case $val in
              $val1)clear ; . DropDatabase.sh ; clear ; break;;
 			 $val2)clear ; . manua.sh ; clear ; break;;
-            $val3) echo "thanks ";exit;;
+            $val3) exit;;
 			* ) echo "error not found "
 		esac
 	done
