@@ -24,24 +24,23 @@ then
    echo "conected to DB : $DBName  "
    . ../../manuaistable.sh
 else
-   echo "databases is not found"
-    choice=("Enter DB name again" "create table" "Back to MENU" "Exit")
-	select result in "${choice[@]}"
-	do
-		case $result in
-            "Enter DB name again")
-            clear ; . ../../conactdb.sh ; clear ; break
-            ;;
-             "create table")
-            clear ; . ../../createTable.sh  ; break
-            ;;
-			 "Back to MENU")
-            clear ; . ../../manua.sh ; clear ; break
-            ;;
-             "Exit")
-            clear ; exit
-            ;;
-			* ) echo "Error: choice not found !"
-		esac
-	done
+   
+   . Back.sh
+
+
+   # echo "databases is not found"
+   #  results=("Back to MENU" "Exit")
+	# select result in "${results[@]}"
+	# do
+	# 	case $result in
+
+	# 		 "Back to MENU")
+   #          clear ; . ../../manua.sh ; clear ; break
+   #          ;;
+   #           "Exit")
+   #          clear ; exit
+   #          ;;
+	# 		* ) echo "Error: choice not found !"
+	# 	esac
+	# done
 fi

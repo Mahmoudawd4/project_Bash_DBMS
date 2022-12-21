@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "please Enter  choice number : "
+echo "please choose input"
 choices=("Back to MENU" "Exit")
 select result in "${choices[@]}"
 do
