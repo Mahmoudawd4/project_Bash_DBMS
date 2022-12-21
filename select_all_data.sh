@@ -2,8 +2,6 @@
 
 . "../../helpersFunction.sh"    #to import helper function from the helpersFunction.sh file
 
-
-
 echo "please enter table name or type (b) to go back to main menu:"
 
 check_string				#to invoke this function from helpersFunction.sh
@@ -47,8 +45,5 @@ else
                 esac
             done
         
-
         fi
-
-
 fi
