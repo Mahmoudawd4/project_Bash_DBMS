@@ -21,6 +21,12 @@ if [  $TableName == "b" ]
                 echo -e "Enter column name to edit on"
                 read colName
 
+                if [  $colName == "ID" ]
+                then
+                echo "the id is uniqe not allow " 
+	            . ../../updateTable.sh
+                fi
+
                 # Check if the column user inputed is in the table schema.
                 actualField=$(awk 'BEGIN{FS=":"}
                     {if(NR==1) 
@@ -74,6 +80,9 @@ if [  $TableName == "b" ]
                         oldValue=$(awk 'BEGIN{FS=":"}{if(NR=='$rowNumber+2'){for(i=1;i<=NF;i++){if(i=='$colNumber') print $i}}}' $TableName )
 
                         echo "Old value for column \"$colName\" is : $oldValue"
+                        echo $totalRowNumber 
+                        echo $actualRowNumber 
+
                         echo "enter new value"
                         #check if the value is integer or string  
 
@@ -84,6 +93,7 @@ if [  $TableName == "b" ]
                         user_Input_RowNumber_Plus_Metadata=$(($userInputRowNumber+2))
 
                         sed -i "$user_Input_RowNumber_Plus_Metadata s/$oldValue/$newValue/g" "$TableName"
+
                 fi
 
         else
