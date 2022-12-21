@@ -64,6 +64,7 @@ if [  $TableName == "b" ]
                         echo "user input row number = $userInputRowNumber"
 
                         oldValue=$(awk -v FS=':' '/"$colName"/{print NR; exit}' $TableName)
+                        echo "total $totalRowNumber"
                         colNumber=$(awk 'BEGIN{FS=":"}{if(NR==1){for(i=1;i<=NF;i++){if($i=="'$colName'") print i}}}' $TableName)  #return 
 
                         echo "fid is $colNumber"
@@ -80,8 +81,9 @@ if [  $TableName == "b" ]
                         # newValue=$returnValue		#returnValue is the value from helpersFunction.sh check_string()
 
                         read newValue
+                        user_Input_RowNumber_Plus_Metadata=$(($userInputRowNumber+2))
 
-                        sed -i "$totalRowNumber s/$oldValue/$newValue/g" "$TableName"
+                        sed -i "$user_Input_RowNumber_Plus_Metadata s/$oldValue/$newValue/g" "$TableName"
                 fi
 
         else
