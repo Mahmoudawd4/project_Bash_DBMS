@@ -20,6 +20,9 @@ if [  $TableName == "b" ]
         if [[ -f "$TableName" ]]
             then
                 #Do update functionality
+		echo "current column names are :"
+                echo `head -1 $TableName`
+                echo #space
 
                 echo -e "Enter column name to edit on"
                 read colName
