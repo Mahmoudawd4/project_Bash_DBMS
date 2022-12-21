@@ -17,8 +17,9 @@ else
 	then
 		#count number of record
 		NF=$(awk -F : 'END{print NR}' $TableName)
-		((id = $NF - 2 )) 
+		((id = $NF - 1 )) 
 		row="$id:"
+		#count number of filed
 		record=$(awk -F : 'END{print NF}' $TableName)
 		for (( i = 2; i <= $record ; i++ )) 
 		do

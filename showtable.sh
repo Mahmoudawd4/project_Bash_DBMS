@@ -4,11 +4,17 @@ clear
 echo "list tables "
 echo "*************************************"
 
+
+
 for db in `ls `
 do
 	echo $index - $db
 	index=$[$index + 1]
 done
+
+
+
+
 
 echo "*************************************"
 
