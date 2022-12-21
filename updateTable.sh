@@ -14,18 +14,21 @@ TableName=$returnValue		#returnValue is the value from helpersFunction.sh check_
 if [  $TableName == "b" ]
     then
         clear 
+        echo "error is table name "
         . . ../../manuaistable.sh
     else
         if [[ -f "$TableName" ]]
             then
                 #Do update functionality
 
-                echo "current column names are :"
-                echo `head -1 $TableName`
-                echo #space
 
                 echo `head -1 $TableName`
-                echo -e "Enter column name to edit on"
+
+                echo "current column names are :"
+                echo #space
+
+                #echo `head -1 $TableName`
+                #echo -e "Enter column name to edit on"
                 read colName
 
                 if [  $colName == "ID" ]
@@ -94,6 +97,7 @@ if [  $TableName == "b" ]
                         user_Input_RowNumber_Plus_Metadata=$(($userInputRowNumber+2))
 
                         sed -i "$user_Input_RowNumber_Plus_Metadata s/$oldValue/$newValue/g" "$TableName"
+                        echo " updated sucess "
 
                 fi
 
@@ -104,8 +108,8 @@ if [  $TableName == "b" ]
             select val in "$val1" "$val2"
             do
                 case $val in
-                    $val1 ) clear ; . ../../insertTable.sh     ; clear ; break;;
-                    $val2 ) clear ; . ../../manuaistable.sh; clear ; break;;
+                    $val1 ) clear ; . ../../updateTable.sh     ; clear ; break;;
+                    $val2 ) clear ; . ../../manuaistable.sh  ; clear ; break;;
                     * ) echo "Erorr choice"
                 esac
             done
