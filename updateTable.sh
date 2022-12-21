@@ -21,14 +21,7 @@ if [  $TableName == "b" ]
             then
                 #Do update functionality
 
-
-                echo `head -1 $TableName`
-
-                echo "current column names are :"
-                echo #space
-
-                #echo `head -1 $TableName`
-                #echo -e "Enter column name to edit on"
+                echo -e "Enter column name to edit on"
                 read colName
 
                 if [  $colName == "ID" ]
